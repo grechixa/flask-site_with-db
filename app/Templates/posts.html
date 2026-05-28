@@ -1,40 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Список статей</h2>
+<h2>Статьи</h2>
 
-<style>
-    .post-list {
-        list-style: none;
-        padding: 0;
-    }
-    .post-item {
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 15px;
-        margin: 10px 0;
-        transition: background-color 0.3s;
-    }
-    .post-item:hover {
-        background-color: #efefef;
-    }
-    .post-item a {
-        color: #0066cc;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-    }
-    .post-item a:hover {
-        text-decoration: underline;
-    }
-</style>
+<p><a href="/posts/add">+ Добавить новый пост</a></p>
 
-<ul class="post-list">
+<ul>
     {% for post in posts %}
-        <li class="post-item">
+        <li>
             <a href="/posts/{{ post.id }}">{{ post.title }}</a>
-            <p style="color: #666; font-size: 14px; margin: 5px 0 0 0;">📄 Перейти к статье →</p>
         </li>
     {% endfor %}
 </ul>

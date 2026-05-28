@@ -2,44 +2,9 @@
 
 {% block content %}
 
-<style>
-    .post-detail {
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 20px;
-        max-width: 800px;
-    }
-    .post-detail h2 {
-        color: #333;
-        border-bottom: 2px solid #0066cc;
-        padding-bottom: 10px;
-    }
-    .post-detail p {
-        color: #555;
-        line-height: 1.6;
-        font-size: 16px;
-    }
-    .back-link {
-        margin-top: 20px;
-    }
-    .back-link a {
-        color: #0066cc;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .back-link a:hover {
-        text-decoration: underline;
-    }
-</style>
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
 
-<div class="post-detail">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    
-    <div class="back-link">
-        <a href="/posts">← Вернуться к списку статей</a>
-    </div>
-</div>
+<a href="/posts">Назад</a>
 
 {% endblock %}

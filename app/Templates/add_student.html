@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Добавить нового студента</h2>
+
+<form method="POST">
+    <label>Имя:</label><br>
+    <input type="text" name="name" required style="width: 300px; padding: 5px;"><br><br>
+    
+    <label>Возраст:</label><br>
+    <input type="number" name="age" required min="1" max="100" style="width: 300px; padding: 5px;"><br><br>
+    
+    <label>Оценка:</label><br>
+    <input type="number" name="grade" required min="1" max="5" style="width: 300px; padding: 5px;"><br><br>
+    
+    <button type="submit">Добавить студента</button>
+    <a href="/students">Отмена</a>
+</form>
+
+{% endblock %}

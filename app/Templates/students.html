@@ -1,26 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Список студентов</h2>
+<h2>Студенты</h2>
+
+<p><a href="/students/add">+ Добавить нового студента</a></p>
 
 <style>
-    .pass { 
-        background-color: #90EE90;
-        color: black;
-    }
-    .fail { 
-        background-color: #FFB6C6;
-        color: black;
-    }
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 8px;
-    }
-    th {
-        background-color: #4CAF50;
-        color: white;
-    }
+    .pass { background-color: lightgreen; }
+    .fail { background-color: lightcoral; }
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; }
 </style>
 
 <table>
@@ -29,24 +17,22 @@
         <th>Возраст</th>
         <th>Оценка</th>
         <th>Статус</th>
+        <th>Действия</th>
     </tr>
-
     {% for s in students %}
-    {% if s.grade >= threshold %}
-        <tr class="pass">
-            <td>{{ s.name }}</td>
-            <td>{{ s.age }}</td>
-            <td>{{ s.grade }}</td>
-            <td>✓ Сдал</td>
-        </tr>
-    {% else %}
-        <tr class="fail">
-            <td>{{ s.name }}</td>
-            <td>{{ s.age }}</td>
-            <td>{{ s.grade }}</td>
-            <td>✗ Не сдал</td>
-        </tr>
-    {% endif %}
+    <tr class="{% if s.grade >= threshold %}pass{% else %}fail{% endif %}">
+        <td>{{ s.name }}</td>
+        <td>{{ s.age }}</td>
+        <td>{{ s.grade }}</td>
+        <td>{{ s.status }}</td>
+        <td>
+            <a href="/students/edit/{{ s.id }}">Редактировать</a>
+            &nbsp;|&nbsp;
+            <form action="/students/delete/{{ s.id }}" method="post" style="display:inline;">
+                <button type="submit" onclick="return confirm('Удалить студента?');">Удалить</button>
+            </form>
+        </td>
+    </tr>
     {% endfor %}
 </table>
 

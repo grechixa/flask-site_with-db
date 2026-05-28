@@ -2,92 +2,28 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Сайт</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #0066cc;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            font-size: 28px;
-        }
-        nav {
-            background-color: #004499;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffcc00;
-        }
-        main {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 20px;
-            min-height: 400px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
-        }
-    </style>
+    <title>Мой сайт</title>
 </head>
 <body>
 
-<header>
-    <h1>🌐 Мой Flask Сайт</h1>
-</header>
+<h1>Мой сайт</h1>
 
-<nav>
-    <a href="/">Главная</a> |
-    <a href="/news">Новости</a> |
-    <a href="/posts">Блог</a> |
-    <a href="/students">Студенты</a> |
-    <a href="/products">Продукты</a> |
-    <a href="/repos">Репозитории</a>
-</nav>
+<hr>
 
-<main>
+<a href="/">Главная</a> |
+<a href="/news">Новости</a> |
+<a href="/posts">Блог</a> |
+<a href="/students">Студенты</a> |
+<a href="/products">Продукты</a> |
+<a href="/repos">Репозитории</a>
+
+<hr>
+
 {% block content %}{% endblock %}
-</main>
 
-<footer>
-    <p>© 2026 Flask Education Project | Все права защищены</p>
-</footer>
+<hr>
+
+<p>© 2026</p>
 
 </body>
 </html>

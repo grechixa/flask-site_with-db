@@ -1,27 +1,29 @@
 {% extends "base.html" %}
-<html>
-{% block title %}
-    <title>Products</title>
-    <style>
-        .expensive { color: red; }
-    </style>
-{% endblock %}
-{% block content %}
 
+{% block content %}
 <h2>Каталог товаров</h2>
+
+<style>
+    .expensive { 
+        background-color: #FFB6C6;
+        font-weight: bold;
+    }
+    .available {
+        background-color: #90EE90;
+    }
+</style>
 
 <ul>
     {% for p in products %}
         <li class="{% if p.price > threshold %}expensive{% endif %}">
-            {{ p.name }} - ${{ p.price }} -
+            <strong>{{ p.name }}</strong> - ${{ p.price }} —
             {% if p.available %}
-                В наличии
+                <span class="available">✓ В наличии</span>
             {% else %}
-                Ожидается поступление
+                <span style="color: #FF6347;">⏳ Ожидается поступление</span>
             {% endif %}
         </li>
     {% endfor %}
 </ul>
 
 {% endblock %}
-</html>

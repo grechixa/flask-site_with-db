@@ -2,5 +2,76 @@
 
 {% block content %}
 <h2>Главная страница</h2>
-<p>Добро пожаловать на сайт!</p>
+
+<style>
+    .welcome {
+        background-color: #e3f2fd;
+        padding: 20px;
+        border-radius: 5px;
+        border-left: 4px solid #0066cc;
+        margin-bottom: 20px;
+    }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .feature-card {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+    .feature-card h3 {
+        color: #0066cc;
+        margin-top: 0;
+    }
+    .feature-card a {
+        color: #0066cc;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .feature-card a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="welcome">
+    <p>👋 Добро пожаловать на сайт!</p>
+    <p>Этот сайт демонстрирует различные функции Flask: работу с базами данных, условные конструкции в шаблонах и многое другое.</p>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>👨‍🎓 Студенты</h3>
+        <p>Список студентов с оценками, статус сдачи из БД SQLite</p>
+        <a href="/students">Перейти →</a>
+    </div>
+    
+    <div class="feature-card">
+        <h3>🛍️ Товары</h3>
+        <p>Каталог товаров с информацией о наличии и цене</p>
+        <a href="/products">Перейти →</a>
+    </div>
+    
+    <div class="feature-card">
+        <h3>📰 Новости</h3>
+        <p>Список популярных новостей с количеством просмотров</p>
+        <a href="/news">Перейти →</a>
+    </div>
+    
+    <div class="feature-card">
+        <h3>📝 Блог</h3>
+        <p>Мини-блог со статьями и детальными страницами</p>
+        <a href="/posts">Перейти →</a>
+    </div>
+    
+    <div class="feature-card">
+        <h3>🔗 Репозитории</h3>
+        <p>Список репозиториев на GitHub с популярностью</p>
+        <a href="/repos">Перейти →</a>
+    </div>
+</div>
+
 {% endblock %}

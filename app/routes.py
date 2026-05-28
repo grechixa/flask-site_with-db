@@ -1,17 +1,19 @@
 from flask import render_template
-from app import app
+from app import app, get_db_connection
 
 #app = Flask(__name__)
 
 @app.route("/students")
 def students():
-    students_data = [
-        {"name": "Иван", "age": 20, "grade": 4},
-        {"name": "Анна", "age": 22, "grade": 2},
-        {"name": "Петр", "age": 19, "grade": 3}
-    ]
+    conn = get_db_connection()
+    students_data = conn.execute('SELECT "Имя" as name, "Возраст" as age, "Оценка" as grade FROM students').fetchall()
+    conn.close()
+    
+    # Преобразуем sqlite3.Row в словари
+    students_list = [dict(s) for s in students_data]
+    
     threshold = 3
-    return render_template("students.html", students=students_data, threshold=threshold)
+    return render_template("students.html", students=students_list, threshold=threshold)
 
 @app.route("/products")
 def products():

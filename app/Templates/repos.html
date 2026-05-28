@@ -3,24 +3,62 @@
 {% block content %}
 <h2>Список репозиториев</h2>
 
-<p><strong>Всего репозиториев:</strong> {{ total }}</p>
+<style>
+    .repo-info {
+        background-color: #e8f5e9;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+    th {
+        background-color: #0066cc;
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    .popular {
+        background-color: #fff3cd !important;
+        font-weight: bold;
+    }
+    .popular span {
+        color: green;
+        font-weight: bold;
+    }
+</style>
+
+<div class="repo-info">
+    📊 Всего репозиториев: <strong>{{ total }}</strong>
+</div>
 
 <table border="1" cellpadding="10">
     <tr>
         <th>Название</th>
         <th>Язык</th>
-        <th>Звезды</th>
+        <th>⭐ Звезды</th>
         <th>Статус</th>
     </tr>
 
     {% for repo in repos %}
-    <tr>
+    <tr {% if repo.stars > threshold %}class="popular"{% endif %}>
         <td>{{ repo.name }}</td>
         <td>{{ repo.language }}</td>
         <td>{{ repo.stars }}</td>
         <td>
             {% if repo.stars > threshold %}
-                <span style="color: green;">Популярный репозиторий</span>
+                <span>🔥 Популярный репозиторий</span>
             {% else %}
                 —
             {% endif %}

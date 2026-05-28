@@ -3,16 +3,35 @@
 {% block content %}
 <h2>Новости</h2>
 
-<ul>
-    {% for item in news %}
-        <li>
-            <strong>{{ item.title }}</strong> —
-            {{ item.views }} просмотров
+<style>
+    .popular {
+        background-color: #FFF8DC;
+        border-left: 4px solid green;
+        padding: 10px;
+        margin: 5px 0;
+    }
+    .news-item {
+        background-color: #f9f9f9;
+        border-left: 4px solid #ccc;
+        padding: 10px;
+        margin: 5px 0;
+    }
+</style>
 
-            {% if item.views > 1000 %}
-                <span style="color: green;">(Популярное)</span>
-            {% endif %}
-        </li>
+<ul style="list-style: none; padding: 0;">
+    {% for item in news %}
+        {% if item.views > 1000 %}
+            <li class="popular">
+                <strong>⭐ {{ item.title }}</strong><br>
+                📊 {{ item.views }} просмотров
+                <span style="color: green; font-weight: bold;"> — Популярное</span>
+            </li>
+        {% else %}
+            <li class="news-item">
+                <strong>{{ item.title }}</strong><br>
+                📊 {{ item.views }} просмотров
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
 

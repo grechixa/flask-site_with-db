@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students</title>
+    <style>
+        .pass { color: green; }
+        .fail { color: red; }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Список студентов</h2>
+
+<table>
+    <tr>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Оценка</th>
+        <th>Статус</th>
+    </tr>
+
+    {% for s in students %}
+    {% if s.grade >= threshold %}
+        <tr class="pass">
+            <td>{{ s.name }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.grade }}</td>
+            <td>Сдал</td>
+        </tr>
+    {% else %}
+        <tr class="fail">
+            <td>{{ s.name }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.grade }}</td>
+            <td>Не сдал</td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+
+</body>
+</html>

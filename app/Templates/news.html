@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Новости</h2>
+
+<ul>
+    {% for item in news %}
+        <li>
+            <strong>{{ item.title }}</strong> —
+            {{ item.views }} просмотров
+
+            {% if item.views > 1000 %}
+                <span style="color: green;">(Популярное)</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
